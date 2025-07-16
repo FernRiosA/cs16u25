@@ -1,19 +1,30 @@
 #include <iostream>
 #include <cmath>
 using namespace std;
-
 int main() {
-	int terms = 1;
-	double pivalue = 0;
-	
-	// You also need to do a loop here that keeps asking for a number
-	// of terms and then approximates pi!
+    int terms = 1;
+    double pivalue = 0;
 
-	// HINT: Part of what we want to do is decide the sign of a number.
-	// There are multiple ways to do this. One way we can do this is to
-	// use cmath for its pow() function, which calculates x raised to
-	// the power y when used like: pow(x, y)
+    while (true) {
+        cout << "Enter the number of terms to approximate (or zero to quit):" << endl;
+        cin >> terms;
+   
+        if (terms == 0) {
+            break;
+        }
 
-	return 0;
-}
+        pivalue = 1.0;
+        for (int i = 2; i <= terms + 1; i++) {
+            double den = 2 * i - 1;
+            double term = pow(-1, i + 1) / den;
+            pivalue += term;    
+   
+        }
+
+        pivalue *= 4;
+
+        cout << "The approximation for Leibniz's Formula is " << pivalue;
+        cout << " using " << terms << " terms." << endl;
+
+    }
 
