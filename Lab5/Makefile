@@ -7,5 +7,5 @@ stats: stats.cpp
 	g++ -std=c++11 -Wall -Werror=vla stats.cpp -o stats
 
 clean:
-	rm sentence stats
+	rm sentence stats 
 
